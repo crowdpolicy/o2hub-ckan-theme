@@ -1,0 +1,13 @@
+{% ckan_extends %}
+
+{% block content_primary_nav %}
+  {{ h.build_nav_icon(group_type + '.read', _('Datasets'), id=group_dict.name, icon='sitemap') }}
+  {# {{ h.build_nav_icon(group_type + '.activity', _('Activity Stream'), id=group_dict.name, offset=0, icon='clock-o') }} #}
+  {{ h.build_nav_icon(group_type + '.about', _('About'), id=group_dict.name, icon='info-circle') }}
+{% endblock %}
+
+{% block secondary_content %}
+  {% snippet 'snippets/organization.html', organization=group_dict, show_nums=false, group_type=group_type %}
+  {% block organization_facets %}{% endblock %}
+{% endblock %}
+

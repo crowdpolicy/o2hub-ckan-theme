@@ -1,0 +1,77 @@
+<footer class="site-footer">
+  <div class="container">
+    {% block footer_content %}
+    <div class="row">
+
+      {% set tags = h.get_facet_items_dict('tags', c.search_facets, limit=5) %}
+      {% if tags %}
+      <div class="popular-tags-wrapper">
+        <h2>{{ _('Popular tags') }}</h2>
+
+        <div class="popular-tags">
+          {% for tag in tags %}
+          <a class="tag" href="{% url_for 'dataset.search', tags=tag.name %}">{{ h.truncate(tag.display_name, 22) }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 attribution">
+
+        <a href="https://www.hcap.gr/" target="_blank" rel="noopener">
+          <div class="hcap-logo-wrapper">
+            <img loading="lazy" src="/hcap-footer-logo.png" alt="hcap-logo">
+          </div>
+        </a>
+
+      </div>
+
+      {% block footer_lang %}
+      {% snippet "snippets/language_selector.html" %}
+      {% endblock %}
+    </div>
+
+    {% set hcap_blog = h.cp_theme_hcap_blog_url(h.lang()) %}
+
+    {% if h.lang() == 'el' %}
+      {% set terms_text = 'Όροι χρήσης & Πολιτική Απορρήτου' %}
+    {% else %}
+      {% set terms_text = 'Terms of use & Privacy Policy' %}
+    {% endif %}
+
+    <div class="row">
+      <div class="the-terms">
+        <a href="{{ hcap_blog }}terms-and-privacy/" rel="noopener"> {{ terms_text }} </a>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  </div>
+
+  {% if h.lang() == 'el' %}
+      {% set credits_text = 'Σχεδιασμός και Υλοποίηση από την' %}
+    {% else %}
+      {% set credits_text = 'Implementation and Design by' %}
+  {% endif %}
+
+  <div class="mini-footer">
+    <a href="https://www.crowdpolicy.com" target="_blank">
+      {{ credits_text }} <img src="/cp-logo.svg" loading="lazy">
+    </a>
+
+    {% set hcap_blog = h.cp_theme_hcap_blog_url(h.lang()) %}
+    <p>
+      Ο κατάλογος του Open Data Hub υλοποιείται με ανοικτό λογισμικό - λογισμικό ανοικτού κώδικα. 
+      Μάθε <a href="{{ hcap_blog }}readme-ckan" target="_blank">περισσότερα</a> 
+    </p>
+  </div>
+
+  {% block footer_debug %}
+  {% if g.debug %}
+  {% include 'snippets/debug.html' %}
+  {% endif %}
+  {% endblock %}
+</footer>

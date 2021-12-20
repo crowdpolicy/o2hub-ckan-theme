@@ -1,0 +1,13 @@
+{% ckan_extends %}
+
+{% block content_primary_nav %}
+  {{ h.build_nav_icon(dataset_type ~ '.read', _('Dataset'), id=pkg.id if is_activity_archive else pkg.name, icon='sitemap') }}
+  {{ h.build_nav_icon(dataset_type ~ '.groups', _('Groups'), id=pkg.id if is_activity_archive else pkg.name, icon='users') }}
+  {#  {{ h.build_nav_icon(dataset_type ~ '.activity', _('Activity Stream'), id=pkg.id if is_activity_archive else pkg.name, icon='c>  #}
+{% endblock %}
+
+{% block secondary_content %}
+  {{ super() }}
+
+  {% snippet 'snippets/cp_theme_feedback_button.html'  %}
+{% endblock %}

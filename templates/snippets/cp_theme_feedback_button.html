@@ -1,0 +1,24 @@
+{% set hcap_blog = h.cp_theme_hcap_blog_url(h.lang()) %}
+
+<a id="dataset-question-link" href="{{ hcap_blog }}requests/?type=question" target="_blank" rel="noopener">
+    <div>
+        <img loading="lazy" src="/feedback.png" alt="Feedback">
+
+        <div>
+            <h1> Στείλε μας feedback για το dataset </h1>
+            <h2> Aπορίες, ιδέες, προτάσεις, προβλήματα </h2>
+        </div>
+    </div>
+</a>
+
+<script>
+    const questionButton = document.getElementById('dataset-question-link');
+    const datasetUrl = window.location.href
+    const questionButtonUrl = questionButton.getAttribute('href')
+
+    const updatedQuestionButtonUrl = `${questionButtonUrl}&dataset-url=${datasetUrl}`
+
+    questionButton.setAttribute('href', updatedQuestionButtonUrl)
+
+    document.querySelector(".main").appendChild(questionButton);
+</script>

@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+{% block users_list_inner %}
+    {% for user in page.items %}
+        <li>
+            {{ h.linked_user(user['name'], maxlength=20) }}
+        </li>
+    {% endfor %}
+{% endblock %}

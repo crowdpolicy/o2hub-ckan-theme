@@ -1,0 +1,15 @@
+image: atlassian/default-image:2
+
+pipelines:
+
+  custom:
+    deploy-to-prod:
+      - step:
+          name: 'Deploy to Production'
+          deployment: production
+          script:
+            - pipe: atlassian/ssh-run:0.3.1
+              variables:
+                SSH_USER: 'root'
+                SERVER: '161.35.27.244'
+                COMMAND: './deployCkanCPTheme.sh'

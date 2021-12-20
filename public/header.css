@@ -1,0 +1,141 @@
+.masthead {
+	position: sticky !important;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999 !important;
+	background: var(--cp-white) !important;
+	box-shadow: 0px 3px 3px #35363629;
+}
+
+.masthead a {
+	color: var(--cp-black) !important;
+	font-weight: bold;
+}
+
+.masthead .navigation .nav-pills li a {
+	font-size: 16px;
+	border-radius: 0;
+	padding: 0.5rem 1.5rem;
+}
+
+.masthead .navigation .nav-pills li a:hover {
+	text-decoration: underline;
+}
+
+.masthead .navigation .nav-pills li.active a,
+.masthead .navigation .nav-pills li:hover a,
+.masthead .navigation .nav-pills li a:active,
+.masthead .navigation .nav-pills li a:focus {
+	background-color: unset !important;
+}
+
+.masthead .navigation .nav-pills li:not(:last-of-type) {
+	border-right: 2px solid rgba(0, 0, 0, 0.14);
+}
+
+.masthead .navbar-collapse {
+	float: left !important;
+}
+
+.navbar .container .row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* .header-text {
+	margin-left: auto;
+} */
+
+.header-text p {
+	color: var(--cp-blue);
+    font-weight: bold;
+    font-size: 19px;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.header-image {
+	margin-right: 5rem;
+}
+
+.header-image a.logo {
+	width: 230px;
+    padding: 0 1rem;
+}
+
+#participate-link:hover {
+	text-decoration: none;
+}
+
+#participate-btn {
+	background-color: var(--cp-pink);
+	padding: 1rem 1.5rem;
+    color: #fff;
+    border-radius: 30px;
+	border: none;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 16px;
+	transition: all .4s ease;
+}
+
+#participate-btn:hover {
+	background-color: var(--cp-dark-pink);
+}
+
+.masthead .header-text-logo .logo img {
+	max-height: unset;
+	width: 300px;
+}
+
+.navbar-toggle {
+	color: var(--cp-black);
+	font-size: 3rem;
+}
+
+@media screen and (max-width: 767px) {
+	.navbar-right {
+		position: absolute;
+		top: -5px;
+		right: 10px;
+	}
+
+	.navbar .container .row {
+		flex-direction: column;
+	}
+
+	.header-text-logo {
+		margin-bottom: 2rem;
+	}
+
+	.header-text {
+		padding-top: 1rem;
+		margin: auto;
+	}
+
+	.masthead .navigation .nav-pills li {
+		border-right: none !important;
+		text-align: center;
+	}
+
+	.masthead .navbar-collapse {
+		float: unset !important;
+	}
+}
+
+@media (max-width: 1000px) {
+	.participate-btn-wrapper {
+		margin-left: unset;
+		margin: 2rem auto 0 auto;
+	}
+}
+
+@media (max-width: 1000px) {
+	.navbar .container .row {
+		flex-direction: column;
+		padding: .5rem;
+	}
+}

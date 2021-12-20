@@ -1,0 +1,142 @@
+.site-footer {
+   background: var(--cp-dark-blue) !important;
+   padding: 20px 0 0 0 !important;
+}
+
+.site-footer .container {
+   padding: 5rem 0;
+}
+
+.site-footer .container .row {
+   display: flex;
+   justify-content: space-between;
+}
+
+.site-footer a,
+.site-footer label {
+   color: var(--cp-white) !important;
+}
+
+.popular-tags-wrapper h2 {
+   color: var(--cp-white);
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.popular-tags {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 1rem;
+   margin-bottom: 2rem;
+}
+
+.popular-tags .tag {
+   color: var(--cp-light-green) !important;
+   padding: .8rem 3rem;
+   border: none;
+   font-weight: bold;
+}
+
+.popular-tags .tag:hover {
+   color: var(--cp-white) !important;
+   background-color: var(--cp-light-green);
+   border: none;
+}
+
+.the-terms {
+   display: flex;
+   margin-top: 4rem;
+}
+
+.the-terms > a {
+   padding: 0 1rem;
+   font-size: 1.5rem;
+}
+
+.the-terms > a:not(:last-of-type) {
+   border-right: 1px solid var(--cp-white);
+}
+
+.mini-footer {
+   text-align: center;
+   padding: 3rem;
+   background-color: var(--cp-darker-blue);
+}
+
+.mini-footer a:first-of-type {
+   color: var(--cp-white);
+   font-size: 1.8rem;
+}
+
+.mini-footer p {
+   color: var(--cp-white);
+   font-size: 1.5rem;
+}
+
+.mini-footer a:hover {
+   text-decoration: none;
+}
+
+.mini-footer a img {
+   width: 60px;
+}
+
+.footer-links h2 {
+   color: var(--cp-white);
+}
+
+.footer-links ul li {
+   line-height: 3;
+}
+
+.footer-links ul li a {
+   font-size: 16px;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+
+.footer-links ul li a:hover {
+   text-decoration: none;
+}
+
+.attribution {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.hcap-logo-wrapper {
+   background-color: #fff;
+   border-radius: 5px;
+   padding: 0.5rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.hcap-logo-wrapper img {
+   width: 230px;
+   height: 110px;
+   object-fit: scale-down;
+}
+
+form.lang-select {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.lang-container .select2-choice {
+   color: #000 !important;
+}
+
+@media screen and (max-width: 660px) {
+   .site-footer .container .row {
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+   }
+}

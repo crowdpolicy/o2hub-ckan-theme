@@ -1,0 +1,106 @@
+.filters > div > .module  > .module-heading,
+.input-group-btn:last-child > .btn,
+.input-group-addon {
+   color: var(--cp-white) !important;
+   background-color: var(--cp-light-green) !important;
+}
+
+.module h1,
+.stages li.active:before {
+   color: var(--cp-light-green) !important;
+}
+
+.badge,
+.stages li.active .highlight {
+   background-color: var(--cp-light-green) !important;
+}
+
+.dataset-heading a,
+.nav-simple .nav-item > a {
+   color: var(--cp-gray);
+}
+
+.nav-simple .nav-item.active > a, .nav-aside li.active a {
+   position: relative;
+   color: var(--cp-white);
+   background-color: var(--cp-green);
+}
+
+.nav-item.active .item-label,
+.nav-item.active a {
+   color: var(--cp-white);
+}
+
+.dataset-resources li a {
+   padding: .8rem;
+}
+
+.label[data-format=csv], .label[data-format*=csv] {
+   background-color: var(--cp-orange) !important;
+}
+
+.metadata-heading {
+   margin-top: 1rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+#dataset-question-link {
+   position: fixed;
+   top: 50%;
+   right: -305px;
+   transform: translateY(-50%);
+   z-index: 9999 !important;
+   transition: all .4s ease;
+}
+
+#dataset-question-link:hover {
+   right: 0px;
+   text-decoration: none;
+}
+
+#dataset-question-link > div {
+   background-color: var(--cp-dark-blue);
+   border-radius: 100px 0 0 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 2rem;
+   position: relative;
+   height: 70px;
+   padding-left: 1.5rem;
+   padding-right: 1rem;
+}
+
+#dataset-question-link > div > div > * {
+   color: var(--cp-white);
+   font-weight: bold;
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+#dataset-question-link > div > div > h1 {
+   font-size: 18px;
+}
+
+#dataset-question-link > div > div > h2 {
+   font-size: 14px;
+}
+
+#dataset-question-link > div > img {
+   width: 40px;
+   height: 40px;
+}
+
+.date > a[data-target="popover"] {
+   display: none;
+}
+
+@media screen and (max-width: 768px) {
+   .context-info .image img {
+      width: unset !important;
+      max-width: 50%;
+      margin: 0 auto;
+   }
+}

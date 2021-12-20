@@ -1,0 +1,126 @@
+{% ckan_extends %}
+
+{% block resource %}
+    {{ super() }}
+
+    {% snippet 'snippets/cp_theme_feedback_button.html'  %}
+{% endblock %}
+
+{% block resource_read_title %}
+    <h1 class="page-heading">{{ h.resource_display_name(res) | truncate(80) }}</h1>
+{% endblock %}
+
+{% block resource_additional_information_inner %}
+<div class="module-content">
+    <h2>{{ _('Additional Information') }}</h2>
+    <table class="table table-striped table-bordered table-condensed" data-module="table-toggle-more">
+        <thead>
+            <tr>
+                <th scope="col">{{ _('Field') }}</th>
+                <th scope="col">{{ _('Value') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{{ _('Data last updated') }}</th>
+                <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.created) or _('-') }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{{ _('Metadata last updated') }}</th>
+                <td>{{ h.render_datetime(res.metadata_modified) or h.render_datetime(res.created) or _('-') }}
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">{{ _('Created') }}</th>
+                <td>{{ h.render_datetime(res.created) or _('-') }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{{ _('Format') }}</th>
+                <td>{{ res.format or res.mimetype_inner or res.mimetype or _('-') }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{{ _('License') }}</th>
+                <td>{% snippet "snippets/license.html", pkg_dict=pkg, text_only=True %}</td>
+            </tr>
+            {% for key, value in h.format_resource_items(res.items()) %}
+
+            {% if key not in ('created', 'metadata modified', 'last modified', 'format') %}
+
+            {% set url = h.full_current_url() %}
+
+            {% if '/en/' not in url %}
+                {% set metadata_keys_dictionary = {
+                    "Media type": "Τύπος δεδομένων",
+                    "Size": "Μέγεθος",
+                    "datastore active": "Datastore ενεργό",
+                    "has views": "Έχει οπτικοποίηση",
+                    "on same domain": "Διαθέσιμο μέσω hub",
+                    "package id": "ID συνόλου δεδομένων (Package ID)",
+                    "state": "Κατάσταση",
+                    "url type": "Τρόπος πρόσβασης",
+                    "id": "ID πόρου δεδομένων (Resource ID)",
+                } %}
+
+                {% set metadata_values_dictionary = {
+                    "active": "Ενεργό",
+                    "upload": "Μεταφόρτωση",
+                } %}
+
+                {% if key in metadata_keys_dictionary.keys() %}
+                    {% set key = metadata_keys_dictionary[key] %}
+                {% endif %}
+
+                {% if value in metadata_values_dictionary.keys() %}
+                    {% set value = metadata_values_dictionary[value] %}
+                {% endif %}
+
+                {% if value is sameas true %}
+                    {% set value = 'Ναι' %}
+                {% endif %}
+
+                {% if value is sameas false %}
+                    {% set value = 'Όχι' %}
+                {% endif %}
+            {% else %}
+                {% set metadata_keys_dictionary = {
+                    "datastore active": "Datastore active",
+                    "has views": "Has views",
+                    "on same domain": "Available via hub",
+                    "package id": "Package ID",
+                    "state": "State",
+                    "url type": "Url type",
+                    "id": "Resource ID",
+                } %}
+
+                {% set metadata_values_dictionary = {
+                    "active": "Active",
+                    "upload": "Upload",
+                } %}
+
+                {% if key in metadata_keys_dictionary.keys() %}
+                    {% set key = metadata_keys_dictionary[key] %}
+                {% endif %}
+
+                {% if value in metadata_values_dictionary.keys() %}
+                    {% set value = metadata_values_dictionary[value] %}
+                {% endif %}
+
+                {% if value is sameas true %}
+                    {% set value = 'Yes' %}
+                {% endif %}
+
+                {% if value is sameas false %}
+                    {% set value = 'No' %}
+                {% endif %}
+            {% endif %}
+
+            <tr class="toggle-more">
+                <th scope="row">{{ key }}</th>
+                <td>{{ value }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

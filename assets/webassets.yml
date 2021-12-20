@@ -1,0 +1,14 @@
+# cp_theme-js:
+#   filter: rjsmin
+#   output: ckanext-cp_theme/%(version)s-cp_theme.js
+#   contents:
+#     - js/cp_theme.js
+#   extra:
+#     preload:
+#       - base/main
+
+# cp_theme-css:
+#   filter: cssrewrite
+#   output: ckanext-cp_theme/%(version)s-cp_theme.css
+#   contents:
+#     - css/cp_theme.css
